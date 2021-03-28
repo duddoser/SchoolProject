@@ -12,7 +12,7 @@ SUBJECTS = {'Математика': 'egemat', 'Русский язык': 'egerus
 
 class University:
 
-    def set_universities(self):
+    def get_universities(self):
         page = requests.get(URL + RATE)
         soup = BeautifulSoup(page.content, 'html.parser')
         uni_rate = soup.find_all('div', {'class': 'col-md-12 vuzRateItem'})
@@ -24,8 +24,9 @@ class University:
                 uni = title.find('a').text.strip('>')
                 if a['href'] != '/vuz/1415':
                     universities[uni] = {k: a['href']}
+            if k == 30:
+                return universities
             k += 1
-        return universities
 
     def get_faculties(self, universities, request):
         response = {}
