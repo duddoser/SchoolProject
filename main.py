@@ -3,7 +3,7 @@ from UniversityProcess import University
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'android_game_secret_key'
+app.config['SECRET_KEY'] = 'android_secret_key'
 uni_process = University()
 UNIVERSITY_DICT = uni_process.get_universities()
 
