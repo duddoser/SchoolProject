@@ -12,7 +12,7 @@ def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
 
 
-@app.route('/get_unversities', methods=["POST"])
+@app.route('/get_universities', methods=["POST"])
 def get_universities():
     university_list = uni_process.get_universities()
     return jsonify({'universities': university_list})
